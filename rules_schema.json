@@ -1,0 +1,56 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Detection Rule Schema",
+  "description": "Format de définition des règles du mini moteur de détection",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": ["id", "name", "condition", "severity"],
+    "properties": {
+      "id": {
+        "type": "string",
+        "description": "Identifiant unique de la règle",
+        "example": "R001"
+      },
+      "name": {
+        "type": "string",
+        "description": "Nom lisible de la règle",
+        "example": "Brute-force SSH détecté"
+      },
+      "description": {
+        "type": "string",
+        "description": "Explication de ce que détecte la règle"
+      },
+      "condition": {
+        "type": "object",
+        "required": ["field", "operator", "value"],
+        "properties": {
+          "field": {
+            "type": "string",
+            "enum": ["type", "user", "detail", "source_ip", "process"],
+            "description": "Champ de l'événement à évaluer"
+          },
+          "operator": {
+            "type": "string",
+            "enum": ["equals", "contains", "regex", "greater_than", "not_equals"],
+            "description": "Opérateur de comparaison"
+          },
+          "value": {
+            "type": "string",
+            "description": "Valeur cible de la condition"
+          }
+        }
+      },
+      "severity": {
+        "type": "string",
+        "enum": ["low", "medium", "high"],
+        "description": "Niveau de criticité de l'alerte"
+      },
+      "tags": {
+        "type": "array",
+        "items": { "type": "string" },
+        "description": "Catégories MITRE ATT&CK ou personnalisées"
+      }
+    }
+  }
+}

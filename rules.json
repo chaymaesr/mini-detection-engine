@@ -1,0 +1,122 @@
+[
+  {
+    "id": "R001",
+    "name": "Échec d'authentification SSH",
+    "description": "Détecte un échec de connexion SSH, pouvant indiquer une tentative de brute-force",
+    "condition": {
+      "field": "type",
+      "operator": "equals",
+      "value": "auth_failure"
+    },
+    "severity": "medium",
+    "tags": ["brute-force", "authentication", "T1110"]
+  },
+  {
+    "id": "R002",
+    "name": "Connexion root directe",
+    "description": "Détecte toute action effectuée par l'utilisateur root, compte à accès restreint",
+    "condition": {
+      "field": "user",
+      "operator": "equals",
+      "value": "root"
+    },
+    "severity": "high",
+    "tags": ["privilege", "T1078"]
+  },
+  {
+    "id": "R003",
+    "name": "Exécution de sudo",
+    "description": "Détecte l'utilisation de sudo, possible vecteur d'élévation de privilèges",
+    "condition": {
+      "field": "detail",
+      "operator": "contains",
+      "value": "sudo"
+    },
+    "severity": "high",
+    "tags": ["privilege-escalation", "T1548"]
+  },
+  {
+    "id": "R004",
+    "name": "Exécution SUID",
+    "description": "Détecte l'exécution d'un binaire avec le bit SUID positionné",
+    "condition": {
+      "field": "type",
+      "operator": "equals",
+      "value": "suid_exec"
+    },
+    "severity": "high",
+    "tags": ["privilege-escalation", "T1548.001"]
+  },
+  {
+    "id": "R005",
+    "name": "Modification de fichier sensible",
+    "description": "Détecte la modification de fichiers système critiques (/etc/passwd, /etc/shadow)",
+    "condition": {
+      "field": "detail",
+      "operator": "regex",
+      "value": "/etc/(passwd|shadow|sudoers)"
+    },
+    "severity": "high",
+    "tags": ["persistence", "T1098"]
+  },
+  {
+    "id": "R006",
+    "name": "Requête DNS suspecte",
+    "description": "Détecte les requêtes DNS inhabituelles, potentiellement utilisées pour l'exfiltration",
+    "condition": {
+      "field": "type",
+      "operator": "equals",
+      "value": "dns_query"
+    },
+    "severity": "medium",
+    "tags": ["exfiltration", "T1048.003"]
+  },
+  {
+    "id": "R007",
+    "name": "Scan de ports",
+    "description": "Détecte une activité de scan de ports réseau",
+    "condition": {
+      "field": "type",
+      "operator": "equals",
+      "value": "port_scan"
+    },
+    "severity": "medium",
+    "tags": ["reconnaissance", "T1046"]
+  },
+  {
+    "id": "R008",
+    "name": "Connexion réseau externe",
+    "description": "Détecte une connexion réseau vers une adresse externe inconnue",
+    "condition": {
+      "field": "type",
+      "operator": "equals",
+      "value": "net_connect"
+    },
+    "severity": "low",
+    "tags": ["exfiltration", "T1041"]
+  },
+  {
+    "id": "R009",
+    "name": "Shell interactif lancé",
+    "description": "Détecte l'ouverture d'un shell interactif, fréquent après exploitation",
+    "condition": {
+      "field": "detail",
+      "operator": "regex",
+      "value": "bash -i|sh -i|/bin/sh|/bin/bash"
+    },
+    "severity": "high",
+    "tags": ["execution", "T1059.004"]
+  },
+  {
+    "id": "R010",
+    "name": "Transfert de données volumineuse",
+    "description": "Détecte un transfert réseau de grande taille, signe potentiel d'exfiltration",
+    "condition": {
+      "field": "detail",
+      "operator": "contains",
+      "value": "large_transfer"
+    },
+    "severity": "high",
+    "tags": ["exfiltration", "T1030"]
+  }
+]

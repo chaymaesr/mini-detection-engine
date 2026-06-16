@@ -1,0 +1,121 @@
+{
+  "generated_at": "2026-06-15T21:07:35.184450",
+  "total_alerts": 5,
+  "summary": {
+    "high": 5,
+    "medium": 0,
+    "low": 0
+  },
+  "alerts": [
+    {
+      "alert_id": "ALT-0001",
+      "generated_at": "2026-06-15T21:07:35.182675",
+      "severity": "high",
+      "rule_id": "R003",
+      "rule_name": "Exécution de sudo",
+      "description": "Détecte l'utilisation de sudo, possible vecteur d'élévation de privilèges",
+      "tags": [
+        "privilege-escalation",
+        "T1548"
+      ],
+      "justification": "Règle 'R003 — Exécution de sudo' déclenchée car le champ 'detail' contient 'sudo'. Valeur observée : 'sudo su - root'. Événement : [2024-11-15T10:15:05Z] process_exec par utilisateur 'www-data'.",
+      "matched_event": {
+        "event_id": "EVT-0002",
+        "timestamp": "2024-11-15T10:15:05Z",
+        "type": "process_exec",
+        "user": "www-data",
+        "process": "bash",
+        "detail": "sudo su - root",
+        "source_ip": "10.0.0.1"
+      }
+    },
+    {
+      "alert_id": "ALT-0002",
+      "generated_at": "2026-06-15T21:07:35.182735",
+      "severity": "high",
+      "rule_id": "R004",
+      "rule_name": "Exécution SUID",
+      "description": "Détecte l'exécution d'un binaire avec le bit SUID positionné",
+      "tags": [
+        "privilege-escalation",
+        "T1548.001"
+      ],
+      "justification": "Règle 'R004 — Exécution SUID' déclenchée car le champ 'type' est exactement 'suid_exec'. Valeur observée : 'suid_exec'. Événement : [2024-11-15T10:15:10Z] suid_exec par utilisateur 'www-data'.",
+      "matched_event": {
+        "event_id": "EVT-0003",
+        "timestamp": "2024-11-15T10:15:10Z",
+        "type": "suid_exec",
+        "user": "www-data",
+        "process": "find",
+        "detail": "/usr/bin/find . -exec /bin/sh",
+        "source_ip": "10.0.0.1"
+      }
+    },
+    {
+      "alert_id": "ALT-0003",
+      "generated_at": "2026-06-15T21:07:35.182746",
+      "severity": "high",
+      "rule_id": "R009",
+      "rule_name": "Shell interactif lancé",
+      "description": "Détecte l'ouverture d'un shell interactif, fréquent après exploitation",
+      "tags": [
+        "execution",
+        "T1059.004"
+      ],
+      "justification": "Règle 'R009 — Shell interactif lancé' déclenchée car le champ 'detail' correspond au pattern 'bash -i|sh -i|/bin/sh|/bin/bash'. Valeur observée : '/usr/bin/find . -exec /bin/sh'. Événement : [2024-11-15T10:15:10Z] suid_exec par utilisateur 'www-data'.",
+      "matched_event": {
+        "event_id": "EVT-0003",
+        "timestamp": "2024-11-15T10:15:10Z",
+        "type": "suid_exec",
+        "user": "www-data",
+        "process": "find",
+        "detail": "/usr/bin/find . -exec /bin/sh",
+        "source_ip": "10.0.0.1"
+      }
+    },
+    {
+      "alert_id": "ALT-0004",
+      "generated_at": "2026-06-15T21:07:35.182757",
+      "severity": "high",
+      "rule_id": "R005",
+      "rule_name": "Modification de fichier sensible",
+      "description": "Détecte la modification de fichiers système critiques (/etc/passwd, /etc/shadow)",
+      "tags": [
+        "persistence",
+        "T1098"
+      ],
+      "justification": "Règle 'R005 — Modification de fichier sensible' déclenchée car le champ 'detail' correspond au pattern '/etc/(passwd|shadow|sudoers)'. Valeur observée : '/etc/passwd modifié ajout utilisateur backdoor'. Événement : [2024-11-15T10:15:20Z] file_write par utilisateur 'www-data'.",
+      "matched_event": {
+        "event_id": "EVT-0004",
+        "timestamp": "2024-11-15T10:15:20Z",
+        "type": "file_write",
+        "user": "www-data",
+        "process": "bash",
+        "detail": "/etc/passwd modifié ajout utilisateur backdoor",
+        "source_ip": "10.0.0.1"
+      }
+    },
+    {
+      "alert_id": "ALT-0005",
+      "generated_at": "2026-06-15T21:07:35.182763",
+      "severity": "high",
+      "rule_id": "R005",
+      "rule_name": "Modification de fichier sensible",
+      "description": "Détecte la modification de fichiers système critiques (/etc/passwd, /etc/shadow)",
+      "tags": [
+        "persistence",
+        "T1098"
+      ],
+      "justification": "Règle 'R005 — Modification de fichier sensible' déclenchée car le champ 'detail' correspond au pattern '/etc/(passwd|shadow|sudoers)'. Valeur observée : '/etc/shadow lecture tentative'. Événement : [2024-11-15T10:15:30Z] file_write par utilisateur 'www-data'.",
+      "matched_event": {
+        "event_id": "EVT-0005",
+        "timestamp": "2024-11-15T10:15:30Z",
+        "type": "file_write",
+        "user": "www-data",
+        "process": "bash",
+        "detail": "/etc/shadow lecture tentative",
+        "source_ip": "10.0.0.1"
+      }
+    }
+  ]
+}

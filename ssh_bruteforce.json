@@ -1,0 +1,72 @@
+[
+  {
+    "id": "EVT-0001",
+    "timestamp": "2024-11-15T08:01:10Z",
+    "type": "auth_failure",
+    "user": "root",
+    "process": "sshd",
+    "detail": "ssh login failed for user root from 203.0.113.42",
+    "source_ip": "203.0.113.42",
+    "pid": 1234
+  },
+  {
+    "id": "EVT-0002",
+    "timestamp": "2024-11-15T08:01:12Z",
+    "type": "auth_failure",
+    "user": "root",
+    "process": "sshd",
+    "detail": "ssh login failed for user root from 203.0.113.42",
+    "source_ip": "203.0.113.42",
+    "pid": 1235
+  },
+  {
+    "id": "EVT-0003",
+    "timestamp": "2024-11-15T08:01:14Z",
+    "type": "auth_failure",
+    "user": "admin",
+    "process": "sshd",
+    "detail": "ssh login failed for user admin from 203.0.113.42",
+    "source_ip": "203.0.113.42",
+    "pid": 1236
+  },
+  {
+    "id": "EVT-0004",
+    "timestamp": "2024-11-15T08:01:18Z",
+    "type": "auth_failure",
+    "user": "root",
+    "process": "sshd",
+    "detail": "ssh login failed for user root from 203.0.113.42",
+    "source_ip": "203.0.113.42",
+    "pid": 1237
+  },
+  {
+    "id": "EVT-0005",
+    "timestamp": "2024-11-15T08:01:22Z",
+    "type": "auth_success",
+    "user": "root",
+    "process": "sshd",
+    "detail": "ssh login success for user root from 203.0.113.42",
+    "source_ip": "203.0.113.42",
+    "pid": 1240
+  },
+  {
+    "id": "EVT-0006",
+    "timestamp": "2024-11-15T08:01:35Z",
+    "type": "process_exec",
+    "user": "root",
+    "process": "bash",
+    "detail": "bash -i interactive shell launched",
+    "source_ip": "203.0.113.42",
+    "pid": 1250
+  },
+  {
+    "id": "EVT-0007",
+    "timestamp": "2024-11-15T08:05:00Z",
+    "type": "auth_success",
+    "user": "alice",
+    "process": "sshd",
+    "detail": "ssh login success for user alice from 10.0.0.5",
+    "source_ip": "10.0.0.5",
+    "pid": 1300
+  }
+]

@@ -1,0 +1,72 @@
+[
+  {
+    "id": "EVT-0001",
+    "timestamp": "2024-11-15T14:00:01Z",
+    "type": "dns_query",
+    "user": "system",
+    "process": "resolver",
+    "detail": "TXT query data.exfil-c2.xyz depuis 192.168.1.50",
+    "source_ip": "192.168.1.50",
+    "pid": 3100
+  },
+  {
+    "id": "EVT-0002",
+    "timestamp": "2024-11-15T14:00:03Z",
+    "type": "dns_query",
+    "user": "system",
+    "process": "resolver",
+    "detail": "TXT query chunk1.exfil-c2.xyz depuis 192.168.1.50",
+    "source_ip": "192.168.1.50",
+    "pid": 3101
+  },
+  {
+    "id": "EVT-0003",
+    "timestamp": "2024-11-15T14:00:05Z",
+    "type": "dns_query",
+    "user": "system",
+    "process": "resolver",
+    "detail": "TXT query chunk2.exfil-c2.xyz depuis 192.168.1.50",
+    "source_ip": "192.168.1.50",
+    "pid": 3102
+  },
+  {
+    "id": "EVT-0004",
+    "timestamp": "2024-11-15T14:00:07Z",
+    "type": "dns_query",
+    "user": "system",
+    "process": "resolver",
+    "detail": "TXT query chunk3.exfil-c2.xyz depuis 192.168.1.50",
+    "source_ip": "192.168.1.50",
+    "pid": 3103
+  },
+  {
+    "id": "EVT-0005",
+    "timestamp": "2024-11-15T14:00:10Z",
+    "type": "net_connect",
+    "user": "apache",
+    "process": "curl",
+    "detail": "connexion sortante vers 198.51.100.42 port 443",
+    "source_ip": "192.168.1.50",
+    "pid": 3110
+  },
+  {
+    "id": "EVT-0006",
+    "timestamp": "2024-11-15T14:00:15Z",
+    "type": "net_connect",
+    "user": "apache",
+    "process": "curl",
+    "detail": "large_transfer 87MB vers 198.51.100.42",
+    "source_ip": "192.168.1.50",
+    "pid": 3111
+  },
+  {
+    "id": "EVT-0007",
+    "timestamp": "2024-11-15T14:05:00Z",
+    "type": "dns_query",
+    "user": "system",
+    "process": "resolver",
+    "detail": "A query www.google.com résolution normale",
+    "source_ip": "192.168.1.10",
+    "pid": 3200
+  }
+]

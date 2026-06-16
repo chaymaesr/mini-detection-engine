@@ -1,0 +1,187 @@
+{
+  "generated_at": "2026-06-15T21:07:44.423462",
+  "total_alerts": 8,
+  "summary": {
+    "high": 1,
+    "medium": 5,
+    "low": 2
+  },
+  "alerts": [
+    {
+      "alert_id": "ALT-0001",
+      "generated_at": "2026-06-15T21:07:44.420838",
+      "severity": "medium",
+      "rule_id": "R006",
+      "rule_name": "Requête DNS suspecte",
+      "description": "Détecte les requêtes DNS inhabituelles, potentiellement utilisées pour l'exfiltration",
+      "tags": [
+        "exfiltration",
+        "T1048.003"
+      ],
+      "justification": "Règle 'R006 — Requête DNS suspecte' déclenchée car le champ 'type' est exactement 'dns_query'. Valeur observée : 'dns_query'. Événement : [2024-11-15T14:00:01Z] dns_query par utilisateur 'system'.",
+      "matched_event": {
+        "event_id": "EVT-0001",
+        "timestamp": "2024-11-15T14:00:01Z",
+        "type": "dns_query",
+        "user": "system",
+        "process": "resolver",
+        "detail": "TXT query data.exfil-c2.xyz depuis 192.168.1.50",
+        "source_ip": "192.168.1.50"
+      }
+    },
+    {
+      "alert_id": "ALT-0002",
+      "generated_at": "2026-06-15T21:07:44.420882",
+      "severity": "medium",
+      "rule_id": "R006",
+      "rule_name": "Requête DNS suspecte",
+      "description": "Détecte les requêtes DNS inhabituelles, potentiellement utilisées pour l'exfiltration",
+      "tags": [
+        "exfiltration",
+        "T1048.003"
+      ],
+      "justification": "Règle 'R006 — Requête DNS suspecte' déclenchée car le champ 'type' est exactement 'dns_query'. Valeur observée : 'dns_query'. Événement : [2024-11-15T14:00:03Z] dns_query par utilisateur 'system'.",
+      "matched_event": {
+        "event_id": "EVT-0002",
+        "timestamp": "2024-11-15T14:00:03Z",
+        "type": "dns_query",
+        "user": "system",
+        "process": "resolver",
+        "detail": "TXT query chunk1.exfil-c2.xyz depuis 192.168.1.50",
+        "source_ip": "192.168.1.50"
+      }
+    },
+    {
+      "alert_id": "ALT-0003",
+      "generated_at": "2026-06-15T21:07:44.420888",
+      "severity": "medium",
+      "rule_id": "R006",
+      "rule_name": "Requête DNS suspecte",
+      "description": "Détecte les requêtes DNS inhabituelles, potentiellement utilisées pour l'exfiltration",
+      "tags": [
+        "exfiltration",
+        "T1048.003"
+      ],
+      "justification": "Règle 'R006 — Requête DNS suspecte' déclenchée car le champ 'type' est exactement 'dns_query'. Valeur observée : 'dns_query'. Événement : [2024-11-15T14:00:05Z] dns_query par utilisateur 'system'.",
+      "matched_event": {
+        "event_id": "EVT-0003",
+        "timestamp": "2024-11-15T14:00:05Z",
+        "type": "dns_query",
+        "user": "system",
+        "process": "resolver",
+        "detail": "TXT query chunk2.exfil-c2.xyz depuis 192.168.1.50",
+        "source_ip": "192.168.1.50"
+      }
+    },
+    {
+      "alert_id": "ALT-0004",
+      "generated_at": "2026-06-15T21:07:44.420893",
+      "severity": "medium",
+      "rule_id": "R006",
+      "rule_name": "Requête DNS suspecte",
+      "description": "Détecte les requêtes DNS inhabituelles, potentiellement utilisées pour l'exfiltration",
+      "tags": [
+        "exfiltration",
+        "T1048.003"
+      ],
+      "justification": "Règle 'R006 — Requête DNS suspecte' déclenchée car le champ 'type' est exactement 'dns_query'. Valeur observée : 'dns_query'. Événement : [2024-11-15T14:00:07Z] dns_query par utilisateur 'system'.",
+      "matched_event": {
+        "event_id": "EVT-0004",
+        "timestamp": "2024-11-15T14:00:07Z",
+        "type": "dns_query",
+        "user": "system",
+        "process": "resolver",
+        "detail": "TXT query chunk3.exfil-c2.xyz depuis 192.168.1.50",
+        "source_ip": "192.168.1.50"
+      }
+    },
+    {
+      "alert_id": "ALT-0005",
+      "generated_at": "2026-06-15T21:07:44.420897",
+      "severity": "low",
+      "rule_id": "R008",
+      "rule_name": "Connexion réseau externe",
+      "description": "Détecte une connexion réseau vers une adresse externe inconnue",
+      "tags": [
+        "exfiltration",
+        "T1041"
+      ],
+      "justification": "Règle 'R008 — Connexion réseau externe' déclenchée car le champ 'type' est exactement 'net_connect'. Valeur observée : 'net_connect'. Événement : [2024-11-15T14:00:10Z] net_connect par utilisateur 'apache'.",
+      "matched_event": {
+        "event_id": "EVT-0005",
+        "timestamp": "2024-11-15T14:00:10Z",
+        "type": "net_connect",
+        "user": "apache",
+        "process": "curl",
+        "detail": "connexion sortante vers 198.51.100.42 port 443",
+        "source_ip": "192.168.1.50"
+      }
+    },
+    {
+      "alert_id": "ALT-0006",
+      "generated_at": "2026-06-15T21:07:44.420901",
+      "severity": "low",
+      "rule_id": "R008",
+      "rule_name": "Connexion réseau externe",
+      "description": "Détecte une connexion réseau vers une adresse externe inconnue",
+      "tags": [
+        "exfiltration",
+        "T1041"
+      ],
+      "justification": "Règle 'R008 — Connexion réseau externe' déclenchée car le champ 'type' est exactement 'net_connect'. Valeur observée : 'net_connect'. Événement : [2024-11-15T14:00:15Z] net_connect par utilisateur 'apache'.",
+      "matched_event": {
+        "event_id": "EVT-0006",
+        "timestamp": "2024-11-15T14:00:15Z",
+        "type": "net_connect",
+        "user": "apache",
+        "process": "curl",
+        "detail": "large_transfer 87MB vers 198.51.100.42",
+        "source_ip": "192.168.1.50"
+      }
+    },
+    {
+      "alert_id": "ALT-0007",
+      "generated_at": "2026-06-15T21:07:44.420905",
+      "severity": "high",
+      "rule_id": "R010",
+      "rule_name": "Transfert de données volumineuse",
+      "description": "Détecte un transfert réseau de grande taille, signe potentiel d'exfiltration",
+      "tags": [
+        "exfiltration",
+        "T1030"
+      ],
+      "justification": "Règle 'R010 — Transfert de données volumineuse' déclenchée car le champ 'detail' contient 'large_transfer'. Valeur observée : 'large_transfer 87MB vers 198.51.100.42'. Événement : [2024-11-15T14:00:15Z] net_connect par utilisateur 'apache'.",
+      "matched_event": {
+        "event_id": "EVT-0006",
+        "timestamp": "2024-11-15T14:00:15Z",
+        "type": "net_connect",
+        "user": "apache",
+        "process": "curl",
+        "detail": "large_transfer 87MB vers 198.51.100.42",
+        "source_ip": "192.168.1.50"
+      }
+    },
+    {
+      "alert_id": "ALT-0008",
+      "generated_at": "2026-06-15T21:07:44.420908",
+      "severity": "medium",
+      "rule_id": "R006",
+      "rule_name": "Requête DNS suspecte",
+      "description": "Détecte les requêtes DNS inhabituelles, potentiellement utilisées pour l'exfiltration",
+      "tags": [
+        "exfiltration",
+        "T1048.003"
+      ],
+      "justification": "Règle 'R006 — Requête DNS suspecte' déclenchée car le champ 'type' est exactement 'dns_query'. Valeur observée : 'dns_query'. Événement : [2024-11-15T14:05:00Z] dns_query par utilisateur 'system'.",
+      "matched_event": {
+        "event_id": "EVT-0007",
+        "timestamp": "2024-11-15T14:05:00Z",
+        "type": "dns_query",
+        "user": "system",
+        "process": "resolver",
+        "detail": "A query www.google.com résolution normale",
+        "source_ip": "192.168.1.10"
+      }
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+[
+  {
+    "id": "EVT-0001",
+    "timestamp": "2024-11-15T10:15:00Z",
+    "type": "process_exec",
+    "user": "www-data",
+    "process": "apache2",
+    "detail": "ls -la /var/www/html",
+    "source_ip": "10.0.0.1",
+    "pid": 2100
+  },
+  {
+    "id": "EVT-0002",
+    "timestamp": "2024-11-15T10:15:05Z",
+    "type": "process_exec",
+    "user": "www-data",
+    "process": "bash",
+    "detail": "sudo su - root",
+    "source_ip": "10.0.0.1",
+    "pid": 2101
+  },
+  {
+    "id": "EVT-0003",
+    "timestamp": "2024-11-15T10:15:10Z",
+    "type": "suid_exec",
+    "user": "www-data",
+    "process": "find",
+    "detail": "/usr/bin/find . -exec /bin/sh",
+    "source_ip": "10.0.0.1",
+    "pid": 2102
+  },
+  {
+    "id": "EVT-0004",
+    "timestamp": "2024-11-15T10:15:20Z",
+    "type": "file_write",
+    "user": "www-data",
+    "process": "bash",
+    "detail": "/etc/passwd modifié ajout utilisateur backdoor",
+    "source_ip": "10.0.0.1",
+    "pid": 2103
+  },
+  {
+    "id": "EVT-0005",
+    "timestamp": "2024-11-15T10:15:30Z",
+    "type": "file_write",
+    "user": "www-data",
+    "process": "bash",
+    "detail": "/etc/shadow lecture tentative",
+    "source_ip": "10.0.0.1",
+    "pid": 2104
+  },
+  {
+    "id": "EVT-0006",
+    "timestamp": "2024-11-15T10:16:00Z",
+    "type": "process_exec",
+    "user": "apache2",
+    "process": "apache2",
+    "detail": "service apache2 restart normal operation",
+    "source_ip": "127.0.0.1",
+    "pid": 2200
+  }
+]

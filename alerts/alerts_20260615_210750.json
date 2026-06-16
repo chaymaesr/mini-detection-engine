@@ -1,0 +1,99 @@
+{
+  "generated_at": "2026-06-15T21:07:50.469783",
+  "total_alerts": 4,
+  "summary": {
+    "high": 0,
+    "medium": 2,
+    "low": 2
+  },
+  "alerts": [
+    {
+      "alert_id": "ALT-0001",
+      "generated_at": "2026-06-15T21:07:50.468027",
+      "severity": "medium",
+      "rule_id": "R007",
+      "rule_name": "Scan de ports",
+      "description": "Détecte une activité de scan de ports réseau",
+      "tags": [
+        "reconnaissance",
+        "T1046"
+      ],
+      "justification": "Règle 'R007 — Scan de ports' déclenchée car le champ 'type' est exactement 'port_scan'. Valeur observée : 'port_scan'. Événement : [2024-11-15T09:00:00Z] port_scan par utilisateur 'unknown'.",
+      "matched_event": {
+        "event_id": "EVT-0001",
+        "timestamp": "2024-11-15T09:00:00Z",
+        "type": "port_scan",
+        "user": "unknown",
+        "process": "nmap",
+        "detail": "nmap -sS 192.168.0.0/24 scan complet sous-réseau",
+        "source_ip": "203.0.113.99"
+      }
+    },
+    {
+      "alert_id": "ALT-0002",
+      "generated_at": "2026-06-15T21:07:50.468061",
+      "severity": "low",
+      "rule_id": "R008",
+      "rule_name": "Connexion réseau externe",
+      "description": "Détecte une connexion réseau vers une adresse externe inconnue",
+      "tags": [
+        "exfiltration",
+        "T1041"
+      ],
+      "justification": "Règle 'R008 — Connexion réseau externe' déclenchée car le champ 'type' est exactement 'net_connect'. Valeur observée : 'net_connect'. Événement : [2024-11-15T09:00:05Z] net_connect par utilisateur 'unknown'.",
+      "matched_event": {
+        "event_id": "EVT-0002",
+        "timestamp": "2024-11-15T09:00:05Z",
+        "type": "net_connect",
+        "user": "unknown",
+        "process": "nmap",
+        "detail": "icmp echo ping sweep 192.168.0.1-254",
+        "source_ip": "203.0.113.99"
+      }
+    },
+    {
+      "alert_id": "ALT-0003",
+      "generated_at": "2026-06-15T21:07:50.468067",
+      "severity": "medium",
+      "rule_id": "R007",
+      "rule_name": "Scan de ports",
+      "description": "Détecte une activité de scan de ports réseau",
+      "tags": [
+        "reconnaissance",
+        "T1046"
+      ],
+      "justification": "Règle 'R007 — Scan de ports' déclenchée car le champ 'type' est exactement 'port_scan'. Valeur observée : 'port_scan'. Événement : [2024-11-15T09:00:20Z] port_scan par utilisateur 'unknown'.",
+      "matched_event": {
+        "event_id": "EVT-0004",
+        "timestamp": "2024-11-15T09:00:20Z",
+        "type": "port_scan",
+        "user": "unknown",
+        "process": "nmap",
+        "detail": "SYN scan ports 22 80 443 3306 5432 8080",
+        "source_ip": "203.0.113.99"
+      }
+    },
+    {
+      "alert_id": "ALT-0004",
+      "generated_at": "2026-06-15T21:07:50.468076",
+      "severity": "low",
+      "rule_id": "R008",
+      "rule_name": "Connexion réseau externe",
+      "description": "Détecte une connexion réseau vers une adresse externe inconnue",
+      "tags": [
+        "exfiltration",
+        "T1041"
+      ],
+      "justification": "Règle 'R008 — Connexion réseau externe' déclenchée car le champ 'type' est exactement 'net_connect'. Valeur observée : 'net_connect'. Événement : [2024-11-15T09:01:00Z] net_connect par utilisateur 'alice'.",
+      "matched_event": {
+        "event_id": "EVT-0006",
+        "timestamp": "2024-11-15T09:01:00Z",
+        "type": "net_connect",
+        "user": "alice",
+        "process": "curl",
+        "detail": "connexion HTTP normale vers api.github.com",
+        "source_ip": "192.168.0.15"
+      }
+    }
+  ]
+}

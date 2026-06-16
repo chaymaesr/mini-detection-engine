@@ -1,0 +1,62 @@
+[
+  {
+    "id": "EVT-0001",
+    "timestamp": "2024-11-15T09:00:00Z",
+    "type": "port_scan",
+    "user": "unknown",
+    "process": "nmap",
+    "detail": "nmap -sS 192.168.0.0/24 scan complet sous-réseau",
+    "source_ip": "203.0.113.99",
+    "pid": 4100
+  },
+  {
+    "id": "EVT-0002",
+    "timestamp": "2024-11-15T09:00:05Z",
+    "type": "net_connect",
+    "user": "unknown",
+    "process": "nmap",
+    "detail": "icmp echo ping sweep 192.168.0.1-254",
+    "source_ip": "203.0.113.99",
+    "pid": 4101
+  },
+  {
+    "id": "EVT-0003",
+    "timestamp": "2024-11-15T09:00:10Z",
+    "type": "service_enum",
+    "user": "unknown",
+    "process": "nmap",
+    "detail": "banner grabbing SSH port 22 version detection",
+    "source_ip": "203.0.113.99",
+    "pid": 4102
+  },
+  {
+    "id": "EVT-0004",
+    "timestamp": "2024-11-15T09:00:20Z",
+    "type": "port_scan",
+    "user": "unknown",
+    "process": "nmap",
+    "detail": "SYN scan ports 22 80 443 3306 5432 8080",
+    "source_ip": "203.0.113.99",
+    "pid": 4103
+  },
+  {
+    "id": "EVT-0005",
+    "timestamp": "2024-11-15T09:00:30Z",
+    "type": "service_enum",
+    "user": "unknown",
+    "process": "curl",
+    "detail": "HTTP OPTIONS enumeration endpoints API",
+    "source_ip": "203.0.113.99",
+    "pid": 4104
+  },
+  {
+    "id": "EVT-0006",
+    "timestamp": "2024-11-15T09:01:00Z",
+    "type": "net_connect",
+    "user": "alice",
+    "process": "curl",
+    "detail": "connexion HTTP normale vers api.github.com",
+    "source_ip": "192.168.0.15",
+    "pid": 4200
+  }
+]
