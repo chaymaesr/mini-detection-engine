@@ -18,7 +18,8 @@ detection_engine/
 │   └── rules.json           # Règles de détection actives
 ├── events/
 │   ├── event_schema.json    # Schéma JSON des événements (référence)
-│   ├── ssh_bruteforce.json  # Scénario 1 : brute-force SSH
+│   ├── ssh_bruteforce.json   # données brutes LabSZ (référence/source)
+│   ├── ssh_bruteforce_converted.json   # fichier utilisé par le moteur ✓
 │   ├── privesc.json         # Scénario 2 : élévation de privilèges
 │   ├── dns_exfil.json       # Scénario 3 : exfiltration DNS
 │   └── recon.json           # Scénario 4 : scan réseau
