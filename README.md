@@ -124,6 +124,51 @@ Options disponibles :
 | 4        | `recon.json`          | Port scan + banner grabbing   | MEDIUM + LOW      |
 
 ---
+## Données de test — Dataset réel SSH
+
+Les scénarios de test du projet utilisent un dataset réel de logs SSH
+issu du projet **LogHub** (Logpai, Université de Hong Kong).
+
+### Source officielle
+
+| Champ | Détail |
+|---|---|
+| **Nom** | OpenSSH_2k.log |
+| **Origine** | Serveur Linux LabSZ |
+| **Période** | Décembre 2024 |
+| **Événements** | 2 000 lignes de logs SSH réels |
+| **Licence** | MIT |
+
+🔗 **Lien direct** : [OpenSSH_2k.log sur GitHub](https://github.com/logpai/loghub/blob/master/OpenSSH/OpenSSH_2k.log)
+
+🔗 **Dépôt complet LogHub** : [github.com/logpai/loghub](https://github.com/logpai/loghub)
+
+### Comment nous l'utilisons
+
+Le fichier brut `OpenSSH_2k.log` n'est pas directement compatible
+avec notre moteur (format texte, pas JSON). Nous avons donc :
+
+1. Converti les logs en JSON structuré via `convert_events.py`
+2. Produit `ssh_bruteforce.json` (629 événements au format du moteur)
+3. Lancé le moteur : `python main.py --rules rules.json --events ssh_bruteforce.json`
+
+### Résultat sur ce dataset
+
+| Métrique | Valeur |
+|---|---|
+| Événements analysés | 629 |
+| Évaluations totales (629 × 10) | 6 290 |
+| Alertes générées | 885 |
+| HIGH (R002 — user=root) | 368 |
+| MEDIUM (R001 — auth_failure) | 517 |
+| IPs distinctes détectées | 8+ |
+| IP la plus agressive | `183.62.140.253` (562 alertes) |
+
+### Citation
+
+> Jieming Zhu, Shilin He, Jinyang Liu, Pinjia He, Qi Xie, Zibin Zheng,
+> Michael R. Lyu. **Tools and Benchmarks for Automated Log Analysis**.
+> arXiv:1811.03509, 2018.
 
 ## Auteur
 
